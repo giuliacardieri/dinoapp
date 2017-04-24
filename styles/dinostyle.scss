@@ -1,0 +1,257 @@
+@mixin browsers($info) {
+  animation: $info;
+  -webkit-animation: $info;
+  -moz-animation: $info;
+  -ms-animation: $info;
+  -o-animation: $info;
+}
+@mixin animation($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+}
+
+$white: #eee;
+$black: #282828;
+$blue: #6378ca;
+$gray: $white - 75;
+
+$text-color: $black;
+
+$bg-color: $blue;
+
+$successColor: #356125;
+$errorColor: #802525;
+$darkSection: #343849;
+
+$border-radius:10px;
+
+$max-xs: 767px;
+$min-sm: 768px;
+$max-sm: 991px;
+$min-md: 992px;
+$max-md: 1199px;
+$min-lg: 1200px;
+
+@font-face {
+    font-family: 'code';
+    src: url('Code_Pro_Demo-webfont.eot');
+    src: url('Code_Pro_Demo-webfont.eot?#iefix') format('embedded-opentype'), url('Code_Pro_Demo-webfont.woff') format('woff'), url('Code_Pro_Demo-webfont.ttf') format('truetype'), url('Code_Pro_Demo-webfont.svg#CodeProDemoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'lato-regular';
+    src: url('Lato-Regular.ttf');
+    font-weight: normal;
+}
+
+body {
+	background-color: $bg-color;
+	color: $text-color;
+	font-family: lato, helvetica, arial, sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-family: code;
+	font-size: 22pt;
+	text-align: center;
+	@media (max-width: $max-sm) {
+		font-size: 18pt;
+	}
+}
+
+h2 {
+	font-family: code;
+	font-size: 18pt;
+	text-align: center;
+	@media (max-width: $max-sm) {
+		font-size: 14pt;
+	}
+}
+
+header {
+	margin: 2.5vh 5vw;
+}
+
+nav {
+	background-color: $white;
+	border-top: 1px solid $blue - 50;
+	bottom: 0;
+	position: fixed;
+	width: 100vw;
+	z-index: 2;
+}
+
+main {
+	margin-bottom: calc(61px + 2.5vh);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline-block;
+		list-style: none;
+		width: 32vw;
+		a {
+			color: $black + 50;
+			display: block;
+			font-size: 11pt;
+			padding: 15px 0;
+			text-align: center;
+			text-decoration: none;
+			&.active .svg-wrapper svg path{
+				fill: $blue - 50;
+			}
+		}
+	}
+	&.audio-list {
+		margin-top: 25px;
+		text-align: center;
+		li {
+			width: 100%;
+			a {
+				color: $black;
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+.hidden {
+	display: none!important;
+}
+
+.svg-wrapper {
+	margin: auto;
+	width: 25px;
+	svg path {
+		fill: $gray;
+	}
+	&.super-svg {
+		width: 25vw;
+		svg path {
+			fill: $black;
+		}
+	}
+}
+
+#dino-svg-wrapper {
+	margin: 15vh auto 0 auto;
+	width: 80vw;
+}
+
+.media-content-wrapper {
+	margin: 5vh 0 0 0; 
+	text-align: center
+}
+
+.btn-wrapper {
+	text-align: center;
+}
+
+button {
+	background-color: $blue - 25;
+	border: 0;
+	border-radius: 100%;
+	color: $white;
+	font-family: lato;
+	line-height: 1.6;
+	padding: 15vw;
+	width: 250px;
+	.svg-wrapper {
+		width: 15vw;
+		svg path {
+			fill: $white;
+		}
+	}
+}
+
+input {
+	width: 100%;
+}
+
+.input-wrapper {
+	background-color: $blue - 25;
+	border-radius: 100%;
+	color: $white;
+	margin: auto;
+	padding: 10vw;
+	width: 50vw;
+	label {
+		color: $white;
+		font-size: 11pt;
+	}
+	.svg-wrapper {
+		width: 15vw;
+		svg path {
+			fill: $white;
+		}
+	}
+}
+
+.btn-stop .svg-wrapper svg path {
+	@include browsers(speakUp 0.45s linear infinite);
+}
+
+/* animations */
+@include animation(speakUp) {
+  0% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5-0.4,2-2,2c-1.7-0.1-2-1.5-2-2V4C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7
+	c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z
+	 M13,22v-2h-2v2H7v2h10v-2H13z');
+  }
+  10% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5,0.8,0.2,0.5,0c-0.4-0.1-2.2,0-2.8,0c-0.6,0-2.4-0.1-2.8,0c-0.3,0.1,1,0.5,1,0V4
+	C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8
+	V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z M13,22v-2h-2v2H7v2h10v-2H13z');
+  }
+  20% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5,0.5-0.8,0.2-1c-0.4-0.1-1.6,0-2.2,0c-0.6,0-2.4,0-2.8,0.1C8.9,10.2,10,11.5,10,11V4
+	C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8
+	V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z M13,22v-2h-2v2H7v2h10v-2H13z');
+  }  
+  30% {
+    d: path('M12.6,2.1c0.8,0.3,1.4,1.1,1.4,2V11c0,0.5,1.8-3,1.5-3.2c-0.4-0.1-2.9,0-3.5,0c-0.6,0-2.8-0.1-3.2,0C8.4,7.9,10,11.5,10,11
+	V4C10,2.7,11.3,1.7,12.6,2.1z M11.6,0C9.5,0.2,8,2.1,8,4.2v6.6c0,2.1,1.5,4,3.6,4.2c2.4,0.2,4.4-1.7,4.4-4V4C16,1.7,14-0.2,11.6,0z
+	 M20,9v1.7c0,3.7-2.5,7.2-6.1,8C8.7,20,4,16,4,11V9c0,0,0,0,0,0H6c0,0,0,0,0,0v1.7c0,2.8,1.9,5.5,4.7,6.1c3.9,0.9,7.3-2.1,7.3-5.9V9
+	c0,0,0,0,0,0L20,9C20,9,20,9,20,9z M13,22V20c0,0,0,0,0,0H11c0,0,0,0,0,0V22c0,0,0,0,0,0H7c0,0,0,0,0,0V24c0,0,0,0,0,0H17
+	c0,0,0,0,0,0V22c0,0,0,0,0,0L13,22C13,22,13,22,13,22z');
+  }
+  40% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5,0.8,0.2,0.5,0c-0.4-0.1-2.2,0-2.8,0c-0.6,0-2.4-0.1-2.8,0c-0.3,0.1,1,0.5,1,0V4
+	C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8
+	V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z M13,22v-2h-2v2H7v2h10v-2H13z');
+  }
+  50% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5,0.5-0.8,0.2-1c-0.4-0.1-1.6,0-2.2,0c-0.6,0-2.4,0-2.8,0.1C8.9,10.2,10,11.5,10,11V4
+	C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8
+	V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z M13,22v-2h-2v2H7v2h10v-2H13z');
+  }  
+  60% {
+    d: path('M12.6,2.1c0.8,0.3,1.4,1.1,1.4,2V11c0,0.5,1.8-3,1.5-3.2c-0.4-0.1-2.9,0-3.5,0c-0.6,0-2.8-0.1-3.2,0C8.4,7.9,10,11.5,10,11
+	V4C10,2.7,11.3,1.7,12.6,2.1z M11.6,0C9.5,0.2,8,2.1,8,4.2v6.6c0,2.1,1.5,4,3.6,4.2c2.4,0.2,4.4-1.7,4.4-4V4C16,1.7,14-0.2,11.6,0z
+	 M20,9v1.7c0,3.7-2.5,7.2-6.1,8C8.7,20,4,16,4,11V9c0,0,0,0,0,0H6c0,0,0,0,0,0v1.7c0,2.8,1.9,5.5,4.7,6.1c3.9,0.9,7.3-2.1,7.3-5.9V9
+	c0,0,0,0,0,0L20,9C20,9,20,9,20,9z M13,22V20c0,0,0,0,0,0H11c0,0,0,0,0,0V22c0,0,0,0,0,0H7c0,0,0,0,0,0V24c0,0,0,0,0,0H17
+	c0,0,0,0,0,0V22c0,0,0,0,0,0L13,22C13,22,13,22,13,22z');
+  }
+  100% {
+    d: path('M12,2c1.1,0,2,0.9,2,2v7c0,0.5,2-5.6,1.6-5.7c-0.4-0.1-3.3,0-3.8,0c-0.6,0-2.8,0-3.1,0.1C8.4,5.5,10,11.5,10,11V4
+	C10,2.9,10.9,2,12,2z M12,0C9.8,0,8,1.8,8,4v7c0,2.2,1.8,4,4,4s4-1.8,4-4V4C16,1.8,14.2,0,12,0z M20,9v2c0,4.4-3.6,8-8,8s-8-3.6-8-8
+	V9h2v2c0,3.3,2.7,6,6,6s6-2.7,6-6V9H20z M13,22v-2h-2v2H7v2h10v-2H13z');
+  }
+}
