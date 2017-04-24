@@ -114,7 +114,7 @@ ul {
 			padding: 15px 0;
 			text-align: center;
 			text-decoration: none;
-			&.active .svg-wrapper svg path{
+			&.active .menu-svg-wrapper svg path{
 				fill: $blue - 50;
 			}
 		}
@@ -136,7 +136,7 @@ ul {
 	display: none!important;
 }
 
-.svg-wrapper {
+.menu-svg-wrapper {
 	margin: auto;
 	width: 25px;
 	svg path {
@@ -153,6 +153,9 @@ ul {
 #dino-svg-wrapper {
 	margin: 15vh auto 0 auto;
 	width: 80vw;
+	@media (min-width: $min-md) {
+		width: 50vw;
+	}
 }
 
 .media-content-wrapper {
@@ -171,13 +174,10 @@ button {
 	color: $white;
 	font-family: lato;
 	line-height: 1.6;
-	padding: 15vw;
+	padding: 75px 50px;
 	width: 250px;
-	.svg-wrapper {
-		width: 15vw;
-		svg path {
-			fill: $white;
-		}
+	@media (min-width: $min-md) {
+		font-size: 12pt;
 	}
 }
 
@@ -190,17 +190,23 @@ input {
 	border-radius: 100%;
 	color: $white;
 	margin: auto;
-	padding: 10vw;
-	width: 50vw;
+	padding: 50px;
+	width: 150px;
 	label {
 		color: $white;
 		font-size: 11pt;
 	}
-	.svg-wrapper {
-		width: 15vw;
-		svg path {
-			fill: $white;
-		}
+}
+
+
+.svg-wrapper {
+	margin: auto;
+	width: 15vw;
+	@media (min-width: $min-md) {
+		width: 5vw;
+	}
+	svg path {
+		fill: $white;
 	}
 }
 

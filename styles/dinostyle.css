@@ -60,7 +60,7 @@ ul {
       padding: 15px 0;
       text-align: center;
       text-decoration: none; }
-      ul li a.active .svg-wrapper svg path {
+      ul li a.active .menu-svg-wrapper svg path {
         fill: #314698; }
   ul.audio-list {
     margin-top: 25px;
@@ -74,19 +74,22 @@ ul {
 .hidden {
   display: none !important; }
 
-.svg-wrapper {
+.menu-svg-wrapper {
   margin: auto;
   width: 25px; }
-  .svg-wrapper svg path {
+  .menu-svg-wrapper svg path {
     fill: #a3a3a3; }
-  .svg-wrapper.super-svg {
+  .menu-svg-wrapper.super-svg {
     width: 25vw; }
-    .svg-wrapper.super-svg svg path {
+    .menu-svg-wrapper.super-svg svg path {
       fill: #282828; }
 
 #dino-svg-wrapper {
   margin: 15vh auto 0 auto;
   width: 80vw; }
+  @media (min-width: 992px) {
+    #dino-svg-wrapper {
+      width: 50vw; } }
 
 .media-content-wrapper {
   margin: 5vh 0 0 0;
@@ -102,12 +105,11 @@ button {
   color: #eee;
   font-family: lato;
   line-height: 1.6;
-  padding: 15vw;
+  padding: 75px 50px;
   width: 250px; }
-  button .svg-wrapper {
-    width: 15vw; }
-    button .svg-wrapper svg path {
-      fill: #eee; }
+  @media (min-width: 992px) {
+    button {
+      font-size: 12pt; } }
 
 input {
   width: 100%; }
@@ -117,15 +119,20 @@ input {
   border-radius: 100%;
   color: #eee;
   margin: auto;
-  padding: 10vw;
-  width: 50vw; }
+  padding: 50px;
+  width: 150px; }
   .input-wrapper label {
     color: #eee;
     font-size: 11pt; }
-  .input-wrapper .svg-wrapper {
-    width: 15vw; }
-    .input-wrapper .svg-wrapper svg path {
-      fill: #eee; }
+
+.svg-wrapper {
+  margin: auto;
+  width: 15vw; }
+  @media (min-width: 992px) {
+    .svg-wrapper {
+      width: 5vw; } }
+  .svg-wrapper svg path {
+    fill: #eee; }
 
 .btn-stop .svg-wrapper svg path {
   animation: speakUp 0.45s linear infinite;
