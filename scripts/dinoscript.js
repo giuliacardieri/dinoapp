@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  //'use strict';
 
 
   var app = {
@@ -24,7 +24,8 @@
     var sayKiki = function sayKiki(test) {
         if (!app.dinoClosed) {
           //if (app.offline === false)
-            app.random = parseInt(Math.random() * Object.keys(audios).length);
+            app.random = parseInt(Math.random() * Object.keys(audios).length) + 1;
+            console.log(app.random);
           // else {
           //   while (audios[app.random].offline !== true)
           //     app.random = parseInt(Math.random() * Object.keys(audios).length);
