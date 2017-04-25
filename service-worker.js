@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var dataCacheName = 'dinokikiData-v2';
-var cacheName = 'dinokiki-2';
+var dataCacheName = 'dinokikiData-v3';
+var cacheName = 'dinokiki-3';
 var filesToCache = [
   '/',
   '/index.html',
