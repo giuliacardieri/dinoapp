@@ -15,22 +15,21 @@
 var dataCacheName = 'dinokikiData-v3';
 var cacheName = 'dinokiki-3';
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/record.html',
-  '/photo.html',
-  '/styles/dinostyle.css',
-  '/scripts/audios.json',
-  '/scripts/app.js',
-  '/scripts/getaudio.js',
-  '/scripts/recorder.js',
-  '/scripts/dinoscript.js',
-  '/styles/Code_Pro_Demo-webfont.ttf',
-  '/audio/KikiG.mp3',
-  '/audio/KikiM.mp3',
-  '/audio/KikiR.mp3',
-  '/audio/KikiI.mp3',
-  '/audio/KikiJ.mp3',
+  'index.html',
+  'record.html',
+  'photo.html',
+  'styles/dinostyle.css',
+  'scripts/audios.json',
+  'scripts/app.js',
+  'scripts/getaudio.js',
+  'scripts/recorder.js',
+  'scripts/dinoscript.js',
+  'styles/Code_Pro_Demo-webfont.ttf',
+  'audio/KikiG.mp3',
+  'audio/KikiM.mp3',
+  'audio/KikiR.mp3',
+  'audio/KikiI.mp3',
+  'audio/KikiJ.mp3',
 ];
 
 self.addEventListener('install', function(e) {
